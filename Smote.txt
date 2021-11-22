@@ -1,0 +1,80 @@
+MLPClassifier(batch_size=64, early_stopping=True,
+              hidden_layer_sizes=(100, 100, 100), random_state=1234,
+              verbose=True)
+Iteration 1, loss = 0.31916459
+Validation score: 0.869114
+Iteration 2, loss = 0.28846643
+Validation score: 0.873047
+Iteration 3, loss = 0.27735428
+Validation score: 0.877417
+Iteration 4, loss = 0.26741246
+Validation score: 0.875669
+Iteration 5, loss = 0.25883168
+Validation score: 0.873703
+Iteration 6, loss = 0.25066197
+Validation score: 0.877417
+Iteration 7, loss = 0.24118901
+Validation score: 0.876871
+Iteration 8, loss = 0.23419515
+Validation score: 0.877199
+Iteration 9, loss = 0.22599792
+Validation score: 0.875232
+Iteration 10, loss = 0.21673300
+Validation score: 0.872173
+Iteration 11, loss = 0.21039818
+Validation score: 0.875014
+Iteration 12, loss = 0.20246906
+Validation score: 0.871190
+Iteration 13, loss = 0.19453274
+Validation score: 0.869879
+Iteration 14, loss = 0.18805226
+Validation score: 0.869660
+Validation score did not improve more than tol=0.000100 for 10 consecutive epochs. Stopping.
+              precision    recall  f1-score   support
+
+           0       0.86      0.95      0.90     11441
+           1       0.45      0.21      0.29      2320
+
+    accuracy                           0.82     13761
+   macro avg       0.65      0.58      0.59     13761
+weighted avg       0.79      0.82      0.80     13761
+
+LogisticRegression(max_iter=20000)
+              precision    recall  f1-score   support
+
+           0       0.86      0.93      0.89     11441
+           1       0.41      0.25      0.31      2320
+
+    accuracy                           0.81     13761
+   macro avg       0.64      0.59      0.60     13761
+weighted avg       0.78      0.81      0.79     13761
+
+KNeighborsClassifier(n_neighbors=3)
+              precision    recall  f1-score   support
+
+           0       0.86      0.87      0.87     11441
+           1       0.34      0.33      0.33      2320
+
+    accuracy                           0.78     13761
+   macro avg       0.60      0.60      0.60     13761
+weighted avg       0.78      0.78      0.78     13761
+
+RandomForestClassifier(random_state=0)
+              precision    recall  f1-score   support
+
+           0       0.86      0.94      0.90     11441
+           1       0.46      0.24      0.32      2320
+
+    accuracy                           0.82     13761
+   macro avg       0.66      0.59      0.61     13761
+weighted avg       0.79      0.82      0.80     13761
+
+*
+
+logreg2 = LogisticRegression(max_iter = 5000)
+rfe = RFE(logreg2,20, verbose=1)
+#pipe.set_params(estimator=rfe)
+pipe.set_params(estimator= rfe)
+pipe.fit(X_train,y_train)
+C:\Users\tobis\anaconda3\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass n_features_to_select=20 as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
